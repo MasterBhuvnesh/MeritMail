@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const isDev = process.env.NODE_ENV === "development";
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -20,7 +21,11 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadFile(path.join(__dirname, "../dist/index.html"));
+  if (isDev) {
+    mainWindow.loadURL("http://localhost:5173");
+  } else {
+    mainWindow.loadFile(path.join(__dirname, "../dist/index.html"));
+  }
 
   Menu.setApplicationMenu(null);
 

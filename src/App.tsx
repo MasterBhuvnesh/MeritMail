@@ -6,6 +6,10 @@ function App() {
           GDG - MeritMail - A desktop application for managing your emails with
           ease and efficiency.
         </p>
+        <p className="mt-4 text-sm text-gray-600">
+          Built with Electron, Vite, React, and Tailwind CSS.
+        </p>
+        <p className="mt-4 text-sm text-gray-600">By Bhuvnesh Verma GDG Web</p>
       </div>
     </main>
   );
