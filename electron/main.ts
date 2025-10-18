@@ -1,7 +1,7 @@
 import { app, BrowserWindow, Menu } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import { initDiscordRPC, destroyDiscordRPC } from "./discord.ts";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const isDev = process.env.NODE_ENV === "development";
@@ -57,4 +57,11 @@ app.on("activate", () => {
   }
 });
 
-app.whenReady().then(createWindow);
+app.on("will-quit", () => {
+  destroyDiscordRPC();
+});
+
+app.whenReady().then(async () => {
+  createWindow();
+  await initDiscordRPC();
+});

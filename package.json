@@ -1,7 +1,7 @@
 {
   "name": "meritmail",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist-electron/main.js",
   "description": "A desktop application for managing your emails with ease and efficiency.",
