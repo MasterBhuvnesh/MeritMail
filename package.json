@@ -5,6 +5,7 @@
   "type": "module",
   "main": "dist-electron/main.js",
   "description": "A desktop application for managing your emails with ease and efficiency.",
+  "license": "MIT",
   "author": "Bhuvnesh Verma",
   "scripts": {
     "dev": "vite",
