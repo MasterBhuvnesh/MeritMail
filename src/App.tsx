@@ -9,7 +9,6 @@ function App() {
         <p className="mt-4 text-sm text-gray-600">
           Built with Electron, Vite, React, and Tailwind CSS.
         </p>
-        <p className="mt-4 text-sm text-gray-600">By Bhuvnesh Verma GDG Web</p>
       </div>
     </main>
   );

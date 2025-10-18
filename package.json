@@ -7,7 +7,7 @@
   "description": "A desktop application for managing your emails with ease and efficiency.",
   "author": "Bhuvnesh Verma",
   "scripts": {
-    "dev": "concurrently \"vite\" \"tsc -w --project electron\" ",
+    "dev": "vite",
     "build-web": "vite build",
     "build-electron": "tsc -b",
     "build": "npm run build-electron && npm run build-web",
@@ -49,7 +49,8 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
     "vite": "npm:rolldown-vite@7.1.14",
-    "vite-plugin-electron": "^0.29.0"
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"
@@ -59,26 +60,48 @@
     "productName": "MeritMail",
     "directories": {
       "buildResources": "electron/buildResources",
-      "output": "dist_electron"
+      "output": "release/${version}"
     },
     "files": [
       "dist/**/*",
       "electron/**/*",
       "dist-electron/**/*",
+      "public/**/*",
+      "electron/buildResources/**/*",
       "package.json"
     ],
     "win": {
-      "icon": "electron/buildResources/icon.ico"
+      "icon": "electron/buildResources/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
     },
     "mac": {
-      "icon": "electron/buildResources/icon.icns"
+      "icon": "electron/buildResources/icon.icns",
+      "target": [
+        "dmg"
+      ],
+      "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
     },
     "linux": {
       "icon": "electron/buildResources/icon.png",
       "target": [
         "AppImage",
         "deb"
-      ]
+      ],
+      "artifactName": "${productName}-Linux-${version}.${ext}"
     }
   }
 }
