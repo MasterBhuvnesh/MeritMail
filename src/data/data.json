@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "pdfs": [{ "name": "report-jan.pdf", "url": "#" }]
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "pdfs": [
+      { "name": "invoice.pdf", "url": "#" },
+      { "name": "summary.pdf", "url": "#" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Carol Lee",
+    "email": "carol@example.com",
+    "pdfs": []
+  }
+]

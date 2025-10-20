@@ -54,12 +54,12 @@ const data = {
   database: [
     {
       name: "DATA",
-      url: "#",
+      url: "/data",
       icon: DatabaseIcon,
     },
     {
       name: "TEST DATA",
-      url: "#",
+      url: "/test-data",
       icon: DatabaseBackupIcon,
     },
     {
